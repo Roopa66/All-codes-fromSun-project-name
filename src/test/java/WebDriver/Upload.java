@@ -15,7 +15,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Upload {
 	@Test
-	public void upload() throws AWTException, InterruptedException {
+	public void upload() throws AWTException {
 
 		WebDriverManager.chromedriver().setup();
 
@@ -30,20 +30,21 @@ public class Upload {
 
 		Robot robot = new Robot(); // Window handling class
 
-		String filePath = "C:\\Users\\mgroopa.m\\Downloads\\Roopa_Resume_Tester.doc";// path in system from properties
+		String filePath = "C:\\Users\\mgroopa.m\\Downloads\\M.G.Roopa_51916390.doc";// path in system from properties
 
 		StringSelection transferData = new StringSelection(filePath); // convert convert human language to machine
 																		// language
 
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(transferData, null);// System Clipbord
-		
+
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_V);
-		Thread.sleep(2000);
 		robot.keyRelease(KeyEvent.VK_V);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
-		Thread.sleep(2000);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
+
+		 driver.findElement(By.id("processTask")).click();
+
 	}
 }
